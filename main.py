@@ -1,4 +1,3 @@
-
 def main():
     pick = None
     store_password = ""
@@ -18,7 +17,23 @@ def main():
 
 
         if pick == '2':
-            pass #FIXME implement decode function
+            print(f"The encoded password is {store_password}, and the original password is {decode(store_password)}")
+
+
+def decode(password):
+    """Decodes the password
+    
+    Arguements: password (string, the password to decode)
+    Returns: string (the decoded password)"""
+
+    password = str(password)
+    decoded_password = []
+
+    for char in password:
+        decoded_password.append(str(abs(int(char) - 3)))
+
+    return "".join(decoded_password)
+
 
 if __name__ == "__main__":
     main()
